@@ -4,7 +4,7 @@
 # https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html
 # Accoring to the link above we should take scipy-notebook and add additional kernels.
 # Since Julia installation seems to be complicated we will take the Julia notebook as base and install separate kernels into separate envs
-FROM quay.io/jupyter/julia-notebook:python-3.12
+FROM quay.io/jupyter/julia-notebook:x86_64-julia-1.11.2
 
 LABEL org.opencontainers.image.authors="Björn A. Grüning, bjoern.gruening@gmail.com"
 
@@ -73,7 +73,7 @@ RUN mkdir -p /home/$NB_USER/.ipython/profile_default/startup/ && \
 
 ADD ./ipython-profile.py /home/$NB_USER/.ipython/profile_default/startup/00-load.py
 ADD jupyter_notebook_config.py /home/$NB_USER/.jupyter/
-ADD jupyter_lab_config.py /home/$NB_USER/.jupyter/
+#ADD jupyter_lab_config.py /home/$NB_USER/.jupyter/
 
 ADD ./custom.js /home/$NB_USER/.jupyter/custom/custom.js
 ADD ./custom.css /home/$NB_USER/.jupyter/custom/custom.css
