@@ -12,10 +12,10 @@ headers = {
     'Content-Security-Policy':
         "; ".join([
             f"default-src 'self' https: {CORS_ORIGIN}",
-            f"img-src 'self' data: {CORS_ORIGIN}",
-            f"connect-src 'self' ws://{CORS_ORIGIN_HOSTNAME}",
+            f"img-src 'self' data: https: {CORS_ORIGIN}",
+            f"connect-src 'self' data: ws://{CORS_ORIGIN_HOSTNAME}",
             f"style-src 'unsafe-inline' 'self' {CORS_ORIGIN}",
-            f"script-src https: 'unsafe-inline' 'unsafe-eval' 'self' {CORS_ORIGIN}"
+            f"script-src https: data: 'unsafe-inline' 'unsafe-eval' 'self' {CORS_ORIGIN}"
         ])
 }
 
@@ -714,7 +714,7 @@ c.ServerApp.allow_root = True
 #                         Leading and trailing slashes can be omitted,
 #                         and will automatically be added.
 #  Default: '/'
-c.ServerApp.base_url = '%s/ipython/' % os.environ.get('PROXY_PREFIX', '')
+#c.ServerApp.base_url = '%s/ipython/' % os.environ.get('PROXY_PREFIX', '')
 
 ## Specify what command to use to invoke a web
 #                        browser when starting the server. If not specified, the
@@ -854,7 +854,7 @@ c.ServerApp.base_url = '%s/ipython/' % os.environ.get('PROXY_PREFIX', '')
 
 ## The IP address the Jupyter server will listen on.
 #  Default: 'localhost'
-c.ServerApp.ip = '0.0.0.0'
+# c.ServerApp.ip = '0.0.0.0'
 
 ## Supply extra arguments that will be passed to Jinja environment.
 #  Default: {}
