@@ -714,7 +714,7 @@ c.ServerApp.allow_root = True
 #                         Leading and trailing slashes can be omitted,
 #                         and will automatically be added.
 #  Default: '/'
-c.ServerApp.base_url = '%s/' % os.environ.get('PROXY_PREFIX', '')
+c.ServerApp.base_url = '%s/ipython/' % os.environ.get('PROXY_PREFIX', '')
 
 ## Specify what command to use to invoke a web
 #                        browser when starting the server. If not specified, the
